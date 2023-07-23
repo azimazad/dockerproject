@@ -9,7 +9,7 @@ on:
 
 env:
   CONTAINER_REGISTRY: ghcr.io
-  IMAGE_NAME: azimazad/hello-flask-app
+  IMAGE_NAME: azimazad/dockerproject
   IMAGE_TAG: latest
 
 jobs:
