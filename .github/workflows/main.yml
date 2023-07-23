@@ -9,7 +9,7 @@ on:
 
 env:
   CONTAINER_REGISTRY: ghcr.io
-  IMAGE_NAME: azimazad/dockerproject
+  IMAGE_NAME: azimazad/dockerpush
   IMAGE_TAG: latest
 
 jobs:
