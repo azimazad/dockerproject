@@ -8,7 +8,7 @@ on:
     - cron: "0 19 * * 6"
 
 env:
-  CONTAINER_REGISTRY: ghcr.io
+  CONTAINER_REGISTRY: ghcr.io/v2
   IMAGE_NAME: azimazad/hello-flask-app
   IMAGE_TAG: latest
 
