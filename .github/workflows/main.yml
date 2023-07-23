@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Login to GitHub Container Registry
-        run:  docker login ${CONTAINER_REGISTRY} -u "azimazad" --password "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"
+        run:  docker login ${CONTAINER_REGISTRY} -u "azimazad" --password "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"
 
       - name: Build and Push Docker Image
         run: |
