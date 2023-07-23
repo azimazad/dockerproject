@@ -1,0 +1,28 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 19 * * 6"
+
+env:
+  CONTAINER_REGISTRY: ghcr.io
+  IMAGE_NAME: azimazad/hello-flask-app
+  IMAGE_TAG: latest
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        run:  docker login ${CONTAINER_REGISTRY} -u "azimazad" --password "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"
+
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} .
+          docker push ${{ env.CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}

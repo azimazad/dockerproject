@@ -1,0 +1,26 @@
+---
+- hosts: remote_ip  
+  become: true  
+
+  tasks:
+    - name: Create users
+      user:
+        name: "{{ item }}"
+        state: present
+        create_home: yes
+      with_items:
+        - john
+    - name: Copy nice-script.sh to /etc/skel
+      copy:
+        src: nice-script.sh
+        dest: /etc/skel/nice-script.sh
+        mode: '0755'  
+    - name: Copy nice-script.sh to each user's home directory
+      copy:
+        src: nice-script.sh
+        dest: "/home/{{ item }}/nice-script.sh"
+        owner: "{{ item }}"
+        group: "{{ item }}"
+        mode: '0755'  
+      with_items:
+        - john
